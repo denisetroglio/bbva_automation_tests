@@ -3,31 +3,39 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
-import time
 
-
-class AccessWebPage:
+class WebPage:
     def __init__(self, driver: WebDriver):
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 10)
-        self.base_url = "https://www.startpage.com/"
+        self.cookies = (By.ID, "W0wltc") 
+        self.url = ""
 
-#Elementos:
+    def configure_website(self, website):
+        if website == "Google":
+            self.url = "https://www.google.com/"
+            self.input_search = (By.ID, "APjFqb")
+            self.result_search = (By.CSS_SELECTOR, "h3")
+        else:
+            self.url = "https://duckduckgo.com/"
+            self.input_search = (By.ID, "searchbox_input")
+            self.result_search = (By.CSS_SELECTOR, "a[data-testid='result-title-a']")
 
-        self.input_search = (By.ID, "q")
-        self.btn_search = (By.CLASS_NAME, "search-btn")
-        self.result_search = (By.XPATH, "//*[@id='e1']/div/div/div[3]/a")
+    def visit(self, url: str):
+        self.driver.get(url)
+        try:
+            self.wait.until(EC.element_to_be_clickable(self.cookies)).click()
+        except:
+            pass
 
+    def search_by(self, word: str):
+        search_box = self.wait.until(
+            EC.visibility_of_element_located(self.input_search)
+        )
+        search_box.send_keys(word + Keys.RETURN)
 
-    def open_webpage(self):
-            self.driver.get(self.base_url)
-
-
-    def search_qa(self, word: str):
-        self.wait.until(EC.visibility_of_element_located(self.input_search)).send_keys(word)
-        search_button = self.wait.until(EC.element_to_be_clickable(self.btn_search))
-        search_button.send_keys(Keys.ENTER)
-
-
-    def result(self):
-        self.wait.until(EC.visibility_of_element_located(self.result_search)).click()
+    def click_on_first_result(self):
+        first_result = self.wait.until(
+            EC.element_to_be_clickable(self.result_search)
+        )
+        first_result.click()

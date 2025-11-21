@@ -1,15 +1,22 @@
+import time
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
-
-options = Options()
+from webdriver_manager.chrome import ChromeDriverManager
 
 @pytest.fixture()
 def driver():
-    print("Creating Chrome driver")
-    my_driver = webdriver.Chrome(service=Service(ChromeDriverManager).install())
-    yield my_driver
-    print("Closing chrome driver")
-    my_driver.quit()
+    options = Options()
+    options.add_argument(
+        "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    )
+    
+    driver = webdriver.Chrome(
+        service=Service(ChromeDriverManager().install()),
+        options=options
+    )
+
+    yield driver
+    driver.quit()

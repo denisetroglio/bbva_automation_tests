@@ -20,3 +20,19 @@ env/
 .cache/
 .pytest_cache/
 *.pytest_cache/
+
+
+# --- Logs ---
+*.log
+*.tmp
+*.out
+
+# --- Selenium Drivers ---
+drivers/*.exe
+drivers/*.log
+drivers/*.zip
+
+# --- IDE / Configuración ---
+.vscode/
+.idea/
+*.iml

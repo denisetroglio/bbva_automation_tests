@@ -50,27 +50,13 @@ pip install pytest-bdd
 
 ## Step 3:
 
-3.1 Install Selenium Webdriver:
+3.1 Install dependencies
 
 ```bash
-pip install selenium
-```
-
-3.2. Install Webdrive Mannager:
-
-```bash
-pip install webdriver-manager
+pip install -r requirements.txt
 ```
 
 ## Step 4:
-
-4.1. List all installed dependencies in the Python environment:
-
-```bash
-pip freeze > requirements.txt
-```
-
-## Step 5:
 
 5.1. Running the Tests:
 
@@ -78,7 +64,7 @@ pip freeze > requirements.txt
 pytest
 ```
 
-## Step 7:
+## Step 5:
 
 7.1. Updating Pytest:
 
