@@ -29,13 +29,9 @@ class WebPage:
             pass
 
     def search_by(self, word: str):
-        search_box = self.wait.until(
-            EC.visibility_of_element_located(self.input_search)
-        )
+        search_box = self.wait.until(EC.visibility_of_element_located(self.input_search))
         search_box.send_keys(word + Keys.RETURN)
 
     def click_on_first_result(self):
-        first_result = self.wait.until(
-            EC.element_to_be_clickable(self.result_search)
-        )
+        first_result = self.wait.until(EC.element_to_be_clickable(self.result_search))
         first_result.click()

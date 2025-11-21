@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 feature_file = os.path.join(os.path.dirname(__file__), "../features/search_by.feature")
 @scenario(feature_file, 'Search by "<word>" and click on first result')
-def test_search_by():
+def test_search_by(driver):
     pass
 
 @pytest.fixture

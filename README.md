@@ -4,10 +4,6 @@
 
 - Denise Troglio - QA
 
-## This project belongs to:
-
-- [BBVA]
-
 ## 🛠️ Tecnologies:
 
 - [Pytest BDD](https://pytest-bdd.readthedocs.io/en/stable/) Pytest-bdd implements a subset of the Gherkin language to enable automating project requirements testing and to facilitate behavioral driven development.
@@ -31,7 +27,7 @@ py -m venv .env
 1.2. Git Bash Environment activate:
 
 ```bash
-source .venv/Scripts/activate
+source .env/Scripts/activate
 ```
 
 1.3. Environment deactivate command:
