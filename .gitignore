@@ -36,3 +36,6 @@ drivers/*.zip
 .vscode/
 .idea/
 *.iml
+
+# Report
+report.html
