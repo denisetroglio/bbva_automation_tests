@@ -38,4 +38,4 @@ drivers/*.zip
 *.iml
 
 # ---Report---
-report.html
+\report.html
