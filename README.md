@@ -1,6 +1,6 @@
 <h3 align="left">BBVA Automation Tests using Pytest, Python, Selenium and Gherkin</h3>
 
-## Author:
+## 👨‍💻 Author:
 
 - Denise Troglio - QA
 
